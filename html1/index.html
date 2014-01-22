@@ -19,6 +19,7 @@
                 </ul>
             </nav>
         </header>
+        <hr />
         <article>
             <header>
                 <hgroup>
@@ -45,6 +46,7 @@
                         <li>View</li>
                         <li>Controller</li>
                     </ul>
+                <hr />
                 <section>
                     <header>
                         <h1>Model</h1>
@@ -88,6 +90,7 @@
                     </pre>
                     <p>The car only exists in the browser’s memory at this point.  We can now make the changes permanent by calling the save() function on the object.  Backbone’s save() function will intelligently determine whether to submit a POST or a PUT, depending on the preexistence of the object on the server.</p>
                 </section>
+                <hr />
                 <section>
                     <header>
                         <h1>Collection</h1>
@@ -106,6 +109,7 @@
                     </pre>
                     <p>If you know you’ll be needing a collection of cars, you can dynamically populate the entire collection rather than inserting each car by hand using the fetch() method on the collection, once you’ve specified where the collection can retrieve itself:</p>
                 </section>
+                <hr />
                 <section>
                     <header>
                         <h1>View</h1>
@@ -152,6 +156,7 @@
                     </pre>
                     <p>By placing the binding code in the <em>initialize</em> function, we’re instantly binding the view to the model.  Underscore allows us to use the <em>bindAll</em> function to utilize “this” in a persistent manner.  Essentially, our code allows us to listen for a change in the make attribute, and then call the <em>changeMake</em> function when the make is actually changed.</p>
                 </section>
+                <hr />
                 <section>
                     <header>
                         <h1>Controller</h1>
@@ -182,6 +187,7 @@
                     </pre>
                     <p>Backbone monitors your code and works with the routes you create to make your app bookmarkable.</p>
                 </section>
+                <hr />
                 <section>
                     <header>
                         <h1>Summary</h1>
