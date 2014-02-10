@@ -154,6 +154,32 @@ pre{
     padding: 0 0.625em 0 0;
 }
 
+.shadow{
+    position:fixed;
+    top:0;
+    background:rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+}
+
+#timeout-prompt{
+    background:white;
+    width:30em;
+    margin:0px auto;
+    margin-top:40%;
+    padding: 20px;
+    text-align:center;
+    border:1px solid #575757;
+}
+
+.hidden{
+    display:none;
+}
+
+.visible{
+    display:block;
+}
+
 /* Media Queries */
 @media(max-width: 588px){
     #site-header h1{
