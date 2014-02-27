@@ -26,6 +26,10 @@ p{
     font-size:0.95em;
 }
 
+.ui-tooltip-content{
+    font-size:12px;
+}
+
 /* Page Layout Styles */
 #site-header {
     text-align:center;
@@ -115,8 +119,27 @@ article h2{
     max-width:18%;
 }
 
+.decorate-image{
+    width:100%;   
+}
+
 article ul{
     list-style:square;
+}
+
+.button{
+    border:1px solid black;
+    cursor:pointer;
+    text-align:center;
+    padding:5px;
+    background-color:#fff;
+    color:#282828;
+    width:10em;
+}
+
+.button:hover{
+    color:#fff;
+    background-color:#282828;
 }
 
 /* Story Styles */

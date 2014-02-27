@@ -6,6 +6,9 @@
         <meta name="description" content="Backbone.js Overview"/>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Rosarivo' rel='stylesheet' type='text/css'> 
     </head>
@@ -13,11 +16,14 @@
         <div id="container">
             <header id="site-header"></header>
             <article>
-                <img class="left-decorate" src="img/backbone.png">
+                <section class="left-decorate">
+                    <img class="decorate-image" src="img/backbone.png">
+                </section>
                 <header class="story-header">
                     <hgroup>
                         <h1>Backbone.js</h1>
                         <h2>An article by Joshua Bohling</h2>
+                        <div class="button" id="hide-sidebar-button">Turn sidebar off</div>
                     </hgroup>
                 </header>
                 <section id="main-story">
@@ -51,7 +57,7 @@
                         <p>Simply put, a model is a baseline guide of the attributes that compose an object.  Let’s take a car, for example, and see how we’d create first the model, “car,” with its attributes:</p>
                         
                         <code>
-    <pre>
+    <pre title="Creating the model for 'Car'">
         var Car = Backbone.Model.extend({
             defaults: {
                 make: 'null',
@@ -66,7 +72,7 @@
                         
                         <p>The above code simply created the “car” model, with its default values and baseline attributes.  Cars all have makes, models, years, trims, and colors.  Our car model includes those attributes so that when we want to create a specific car, we can include those attributes:</p>            
                         <code>
-    <pre>
+    <pre title="Creating our MyDreamCar object, and setting the corresponding attributes">
         var MyDreamCar = new Car({
             make: 'Buick',
             model: 'Regal',
@@ -78,7 +84,7 @@
                         </code>
                         <p>As you can see, we’ve created a new car based off the “car” model.  This car has a make, model, year, trim, and color assigned.  We can retrieve or change those values at any time by calling the getters and setters for the object, which Backbone created automatically:</p>
                         <code>
-    <pre>
+    <pre title="Getting and setting values for the MyDreamCar object">
         var trim = MyDreamCar.get("trim");
         MyDreamCar.set({color: 'Sharkskin Grey'});
     </pre>
@@ -92,7 +98,7 @@
                         </header>
                         <p>As the name implies, collections are groups of models (objects) of the same type.  Rarely will your application only store one instance of a model type, and so it stands to reason that Backbone should include a way to handle multiple objects of the same type.  Collections are created by specifying the model type which they will contain.  For example:</p>
                         <code>
-    <pre>
+    <pre title="Creating a new collection of cars">
         var Cars = Backbone.Collection.extend({
             model : Car,
             url : "/cars"
@@ -111,7 +117,7 @@
                         </header>
                         <p>Views in backbone are not strictly views in the traditional sense.  The view can listen to events which are created by your models and collections, or which are brought about by activity in the DOM.  Views also serve to display and indicate the application’s data model to users.  Views are created similarly to the previous two classes described:</p>
                         <code>
-    <pre>
+    <pre title="Creating a view for 'Car'">
         CarView = Backbone.View.extend({
             tagName: "div",
             className: "car",
@@ -119,7 +125,7 @@
                         </code>
                         <p>The render functions can be either purely javascript or can utilize other frameworks like jquery.  For simplicity, we’ll demonstrate the render function using jQuery:</p>
                         <code>
-    <pre>
+    <pre title="The render function">
         render: function(){
             $(this.el).html(this.model.get('make' + ' ' + 'model' + ' ' + 'trim'));
         });
@@ -128,7 +134,7 @@
                         <p>Obviously, large web-apps utilize dozens of views, and quite frankly, can become unwieldy very quickly when deploying many similar pages.  In these situations, templating solutions like Underscore.JS can be used to create templates available for reuse later.</p>
                         <p>Views listen to events to drive manipulation of the view itself.  DOM event listeners/functions can be specified in the creating of the view:</p>
                         <code>
-    <pre>
+    <pre title="The creation of view events and handlers">
         events: {  
             'click .name': 'handleClick'  
         },  
@@ -140,7 +146,7 @@
                         </code>
                         <p>This is a simple enough approach to DOM events.  However, the true beauty of Backbone is its ability to bind models and collections together:</p>
                         <code>
-    <pre>
+    <pre title="Binding models and collections together is magic">
         CarView= Backbone.View.extend({  
             initialize: function (args) {  
                     _.bindAll(this, 'changeMake');  
@@ -158,7 +164,7 @@
                         </header>
                         <p>A controller in Backbone essentially allows for the creation of stateful applications that can be returned to later on using a friendly URL string.  Similar to routing (found in MVC), controllers allow us to direct traffic flow in the browser without passing long query strings in the URL:</p>
                         <code>
-    <pre>
+    <pre title="Backbone controllers are similar to other routing methods">
         var Hashbangs = Backbone.Controller.extend({  
             routes: {  
                 "!/": "root",  
@@ -176,7 +182,7 @@
                         </code>
                         <p>A common user frustration in JS-heavy web applications is the failure of the back button to perform as expected.  Backbone can take care of that for you:</p>
                         <code>
-    <pre>
+    <pre title="One line restores back button functionality">
         Backbone.history.start();
     </pre>
                         </code>
@@ -196,5 +202,29 @@
             <footer id="site-footer"></footer>
         </div>
     </body>
+    <script>
+        $(document).ready(function(){
+            //Activate styled tooltips, courtesy of jQuery UI
+            $("pre").tooltip();
+            
+            //Attach event listener to the "hide" button
+            $("#hide-sidebar-button").on("click",function(){
+                //We need to intelligently determine if the sidebar is already visible.  
+                //If not, we will change the text of the button and make it visible.
+                if($(".left-decorate").css("display")=="none"){
+                    $(".story-header, #main-story").animate({marginLeft:"20%"},400,function(){
+                        $(".left-decorate").fadeIn();                                     
+                    });
+                    $("#hide-sidebar-button").html("Turn sidebar off");
+                //If it is visible, we will hide it and de-allocate space for it and hide it.
+                }else{
+                    $(".left-decorate").fadeOut(400,function(){
+                        $(".story-header, #main-story").animate({marginLeft:"0"});
+                    });
+                    $("#hide-sidebar-button").html("Turn sidebar on");
+                }
+            });
+        });
+    </script>
     <script src="template.js"></script>
 </html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            // 1: List the 6 data types in JavaScript
+
+
+            // 2:Create a variable for each of the six data types
+            
+
+            // 3: Log a string to the console
+                console.log("Hello World.")
+
+            // 4: Create an alert on the web page
+                alert("I'm sorry, but your dog has died.")
+
+            // 5: Use the Math object to find the solution to 8^14
+                Math.pow(8,14)
+
+            // 6: Use math number to create a random number between 0 and 10. If it's greater than 5, log that it's greater, if not, log that it's smaller
+                function randomNumber(){
+                    var random = Math.floor(Math.random()*11);
+                    if(random > 5){
+                        console.log("Greater than 5")
+                    }else{
+                        console.log("Smaller than 5")
+                    }
+                }
+
+            // 7: Create a variable that is several words long using camel case
+                    iHateInClassPresentations
+
+            // 8: Use the Math and parse functions to parse the string "14.5555" into an integer.
+                   var rounded = Math.round("14.5555");
+
+            // 9: Create a function that accepts two numbers as parameters, and returns the sum of the two numbers
+                    function sum(a, b){
+                        return a+b;
+                    }
+
+            // 10: Using a for loop, log all of the items in the array below.
+
+            var array9 = ['Oranges','Kiwi','Bananas','Cherries','Apples'];
+                for (var i; i<(array.length-1); i++){
+                    console.log(array9[i]);
+                }
+
+            // 11: Create an object called movie. Have a property called favorites, that is an array of your top 3 favorite movies. Have a second property called worst that is an array containing your least 2 favorities movies
+                var movie= {
+                    favorites:['Jungle Book','Aristocats','Sleeping Beauty'],
+                    worst:['Superman','Iron Man 3']
+                }
+
+            // 12: Add a getMiddle function to the Array prototype. Have it return the middle value in an array, or the upper middle if the true middle doesn't exist.
+                Array.prototype.getMiddle = function(){
+                    middleNum = Math.round((this.length - 1) / 2)
+                    return this[middleNum];
+                }
+
+            // 13: Create a function that accepts a list of numbers. Have that function return the reverse of all the numbers
+                
+                function reverser(){
+                    return Array.prototype.reserse.apply(arguments)
+                }
+
+            // 14: Split the following string on a comma
+            var csv = "jackal,rabbit,hare,"
+                var splitted = csv.split(",");
+
+            // 15: Use the reduce function to figure out the average age of all the people in the following array
+
+            var peopleArray =   [{
+                                    name: 'Seth Howard',
+                                    age: 25
+                                },{
+                                    name: 'Chloe Howard',
+                                    age: 22
+                                },{
+                                    name: 'Saul Howard',
+                                    age: 29
+                                },{
+                                    name: 'Cory Howard',
+                                    age: 15
+                                },{
+                                    name: 'Jade Howard',
+                                    age: 23
+                                },{
+                                    name: 'Lauren Howard',
+                                    age: 27
+                                },{
+                                    name: 'Megan Howard',
+                                    age: 23
+                                },{
+                                    name: 'Sean Howard',
+                                    age: 18
+                                }];
+                
+            function averageAges(arraye){
+                var total=arraye.reduce(function(x,y){
+                    return x+y;
+                });
+                return averageAge = total/arraye.length
+            }
+            
+            averageAges(peopleArray);
+
+            // 16: Using the previous array, use the map function to create a new array of just the ages
+                var sortedArray = peopleArray.map(function(a){
+                    return a.age
+                });
+                
+            // 17: Using the previous array, use the sort function to organize the array by the age of the people
+
+            // 18: Loop through the array and the following HTML for each person
+                // <div>
+                //      <h1>Name: _NAME_</h1>
+                //      <h3>Age: _AGE_</h3>
+                // </div>
+
+            // 19: Create two inputs and a button and put them on the page. When the user clicks the button, check to see if there is a nonempty
+            // string in the name input, and a valid integer in the age input. If they are valid, create the person object and place it into
+            // the peopleArray (keep it sorted by age!). Then, create the proper HTML and append it to the web page
+
+
+        </script>
+    </body>
+</html>

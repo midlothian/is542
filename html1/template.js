@@ -3,17 +3,17 @@ header +=           '<h1>Web Revealed</h1>';
 header +=       '</hgroup>';
 header +=       '<nav class="main-nav" id="top-nav">';
 header +=           '<ul>';
-header +=               '<li><a href="index.html">Home</a></li>';
-header +=               '<li><a href="index.html">Articles</a></li>';
-header +=               '<li><a href="about.html">About</a></li>';
+header +=               '<li><a href="index.html" title="Go Home">Home</a></li>';
+header +=               '<li><a href="index.html" title="View articles">Articles</a></li>';
+header +=               '<li><a href="about.html" title="More about the author">About</a></li>';
 header +=           '</ul>';
 header +=       '</nav>';
 
 var footer =    '<nav class="main-nav">';
 footer +=           '<ul>';
-footer +=               '<li><a href="../index.html">Home</a></li>';
-footer +=               '<li><a href="../index.html">Articles</a></li>';
-footer +=               '<li><a href="about/index.html">About</a></li>';
+footer +=               '<li><a href="index.html" title="Go Home">Home</a></li>';
+footer +=               '<li><a href="index.html" title="View articles">Articles</a></li>';
+footer +=               '<li><a href="about.html" title="More about the author">About</a></li>';
 footer +=           '</ul>';
 footer +=       '</nav>';
 
@@ -33,7 +33,7 @@ function injectTemplate(){
     siteFooter.innerHTML=footer;
 };
 
-function insertPrompt(){
+/*function insertPrompt(){
     var container = document.getElementById('container');
     container.innerHTML += timeoutDiv;
     
@@ -59,7 +59,8 @@ function insertPrompt(){
     }
     
     promptExtend();
-}
+}*/
 
 injectTemplate();
-insertPrompt();
+/*insertPrompt();*/
+
